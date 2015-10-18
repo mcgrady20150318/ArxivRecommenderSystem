@@ -14,8 +14,8 @@ protocol LateralDAODelegate{
     
     func recommendPapersByTagsError(error:NSError)
     
-    func recommendTagsByPapersSuccess(result:[AnyObject])
+  //  func recommendTagsByPapersSuccess(result:[AnyObject])
     
-    func recommendTagsByPapersError(error:NSError)
+  //  func recommendTagsByPapersError(error:NSError)
     
 }

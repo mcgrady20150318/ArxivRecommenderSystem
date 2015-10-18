@@ -17,37 +17,38 @@ class PaperDAO{
     
     var lateralDelegate : LateralDAODelegate?
     
-    let query = PFQuery(className: "Paper")
-    
-    init(){
+    class var sharedInstance: PaperDAO {
         
-        PFUser.logInWithUsernameInBackground("Ring", password:"zhangjun164") {
+        struct Static {
             
-            (user: PFUser?, error: NSError?) -> Void in
+            static var instance: PaperDAO?
+            static var token: dispatch_once_t = 0
             
-            if user != nil {
-                
-                print(PFUser.currentUser()?.objectId)
-                
-            }else{
-                
-                
-            }
         }
+        
+        dispatch_once(&Static.token) {
+            
+            Static.instance = PaperDAO()
+            
+        }
+        
+        return Static.instance!
         
     }
     
-    func findAllPapers(){
+    func findAll(){
         
-        query.whereKey("user", equalTo:(PFUser.currentUser())!)
+      //  print((PFUser.currentUser()?.sessionToken)!)
+        let query = PFQuery(className: "Paper")
+        
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
         
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
                     
             if error != nil{
                         
                 self.parseDelegate?.findAllError(error!)
-                
-                print(error)
+            
                         
             }else{
                         
@@ -78,7 +79,8 @@ class PaperDAO{
                     }
                             
                     self.parseDelegate?.findAllSuccess(paperlist)
-                            
+                    
+                    
                 }
                         
                         
@@ -88,7 +90,7 @@ class PaperDAO{
 
     }
     
-    func createPaper(paper : PaperModel){
+    func create(paper : PaperModel){
         
         let paperObject = PFObject(className: "Paper")
         
@@ -104,9 +106,9 @@ class PaperDAO{
         
         paperObject["url"] = paper.url
         
-        print(PFUser.currentUser())
+      //  print(PFUser.currentUser())
         
-        paperObject["user"] = (PFUser.currentUser())!
+        paperObject["user"] = (PFUser.currentUser()!)
         
         paperObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             
@@ -123,13 +125,15 @@ class PaperDAO{
         
     }
     
-    func removePaper(paper : PaperModel){
+    func remove(Paper : PaperModel){
         
-        let predicate = NSPredicate(format:"title=\(paper.title) and user=\(PFUser.currentUser())")
+        let predicate = NSPredicate(format:"title='\((Paper.title)!)'")
         
-        let q = PFQuery(className: "Paper", predicate: predicate)
+        let query = PFQuery(className: "Paper", predicate: predicate)
         
-        q.findObjectsInBackgroundWithBlock { (papers:[PFObject]?, error:NSError?) -> Void in
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
+        
+        query.findObjectsInBackgroundWithBlock { (papers:[PFObject]?, error:NSError?) -> Void in
             
             if error != nil{
                 
@@ -170,7 +174,7 @@ class PaperDAO{
     
     func findAllPapersRecommendedByTags(tags : [TagModel]){
         
-        var paperlist : [PaperModel]?
+        var paperlist : [PaperModel] = []
         
         var str = ""
             
@@ -186,6 +190,8 @@ class PaperDAO{
             
         }
         
+     //   print(str)
+        
         let url = "https://arxiv-api.lateral.io/recommend-by-text/"
         
         let parameters = [
@@ -194,6 +200,7 @@ class PaperDAO{
             //"Machine learning is a subfield of computer science that evolved from the study of pattern recognition"
         ]
         
+
         Alamofire.request(.POST, url, parameters:parameters, encoding: .JSON, headers:Lateral_Headers)
         
             .responseJSON{ response in
@@ -202,30 +209,32 @@ class PaperDAO{
                     
                     if let data = JSON(rawValue: result){
                         
-                        for d in data{
-                            
-                            // json value error handle
+                     //   print(data)
+                        
+                        for(var i=0;i<data.count;i++){
                             
                             let paper = PaperModel(title: "")
                             
-                            paper.title = d.1["title"].stringValue
+                            paper.title = data[i]["title"].stringValue
                             
-                            paper.author = d.1["authors"][0].stringValue
+                            paper.author = data[i]["authors"][0].stringValue
                             
-                            paper.summary = d.1["text"].stringValue
+                            paper.summary = data[i]["text"].stringValue
                             
-                            paper.time = d.1["date"].stringValue
+                            paper.time = data[i]["date"].stringValue
                             
-                          //  paper.category = d.1["category"].stringValue
+                            //  paper.category = d.1["category"].stringValue
                             
-                            paper.url = d.1["url"].stringValue
+                            paper.url = data[i]["url"].stringValue
                             
-                            paperlist?.append(paper)
+                       //     print(paper.title)
                             
+                            paperlist.append(paper)
                             
                         }
                         
-                        self.lateralDelegate?.recommendPapersByTagsSuccess(paperlist!)
+                        
+                        self.lateralDelegate?.recommendPapersByTagsSuccess(paperlist)
                         
                         
                     }else{

@@ -19,9 +19,28 @@ class TagDAO{
     
     let query = PFQuery(className: "Tag")
     
-    func findAllTags(){
+    class var sharedInstance: TagDAO {
         
-        print(PFUser.currentUser())
+        struct Static {
+            
+            static var instance: TagDAO?
+            static var token: dispatch_once_t = 0
+            
+        }
+        
+        dispatch_once(&Static.token) {
+            
+            Static.instance = TagDAO()
+            
+        }
+        
+        return Static.instance!
+        
+    }
+    
+    func findAll(){
+        
+      //  print(PFUser.currentUser())
         
         query.whereKey("user", equalTo:PFUser.currentUser()!)
         
@@ -43,7 +62,7 @@ class TagDAO{
                         
                         let tag = TagModel(name:"")
                         
-                       
+                        tag.name = objects[i].valueForKey("name") as! String
                         
                         taglist.append(tag)
                         
@@ -61,13 +80,13 @@ class TagDAO{
         
     }
     
-    func createTag(tag : TagModel){
+    func create(tag : TagModel){
         
         let tagObject = PFObject(className: "Tag")
         
         tagObject["name"] = tag.name
         
-        tagObject["user"] = PFUser.currentUser()
+        tagObject["user"] = PFUser.currentUser()!
         
         tagObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             
@@ -84,11 +103,13 @@ class TagDAO{
         
     }
     
-    func removeTag(tag : TagModel){
+    func remove(tag : TagModel){
         
-        let predicate = NSPredicate(format: "name = \(tag.name) and user = \(PFUser.currentUser())")
+        let predicate = NSPredicate(format: "name = '\(tag.name!)'")
         
         let q = PFQuery(className: "Tag", predicate: predicate)
+        
+        q.whereKey("user", equalTo:PFUser.currentUser()!)
         
         q.findObjectsInBackgroundWithBlock { (tags:[PFObject]?, error:NSError?) -> Void in
             
@@ -97,6 +118,8 @@ class TagDAO{
                 self.parseDelegate?.removeError(error!)
                 
             }else{
+                
+                print(tags?.count)
                 
                 if let tags = tags as [PFObject]!{
                     

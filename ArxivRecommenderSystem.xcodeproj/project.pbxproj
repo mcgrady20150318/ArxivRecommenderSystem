@@ -36,6 +36,13 @@
 		60C3B87C1BD20F1A0014AC18 /* TagDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */; settings = {ASSET_TAGS = (); }; };
 		60C3B8811BD2BCFF0014AC18 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8801BD2BCFF0014AC18 /* const.swift */; settings = {ASSET_TAGS = (); }; };
 		60C3B8871BD303110014AC18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8861BD303110014AC18 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B8891BD330080014AC18 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8881BD330080014AC18 /* RegisterViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B88B1BD33B0F0014AC18 /* PaperDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88A1BD33B0F0014AC18 /* PaperDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B88D1BD33B1F0014AC18 /* TagDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88C1BD33B1F0014AC18 /* TagDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B88F1BD33B2D0014AC18 /* UserDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88E1BD33B2D0014AC18 /* UserDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B8971BD33D1C0014AC18 /* UserBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8961BD33D1C0014AC18 /* UserBL.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B8991BD33D270014AC18 /* PaperBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8981BD33D270014AC18 /* PaperBL.swift */; settings = {ASSET_TAGS = (); }; };
+		60C3B89B1BD33D320014AC18 /* TagBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B89A1BD33D320014AC18 /* TagBL.swift */; settings = {ASSET_TAGS = (); }; };
 		FAA4F01A1B3868D6B141B5CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAB919951E3D4EA70CBA1E3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +99,13 @@
 		60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDAO.swift; sourceTree = "<group>"; };
 		60C3B8801BD2BCFF0014AC18 /* const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
 		60C3B8861BD303110014AC18 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		60C3B8881BD330080014AC18 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		60C3B88A1BD33B0F0014AC18 /* PaperDAODelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperDAODelegate.swift; sourceTree = "<group>"; };
+		60C3B88C1BD33B1F0014AC18 /* TagDAODelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDAODelegate.swift; sourceTree = "<group>"; };
+		60C3B88E1BD33B2D0014AC18 /* UserDAODelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAODelegate.swift; sourceTree = "<group>"; };
+		60C3B8961BD33D1C0014AC18 /* UserBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBL.swift; sourceTree = "<group>"; };
+		60C3B8981BD33D270014AC18 /* PaperBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperBL.swift; sourceTree = "<group>"; };
+		60C3B89A1BD33D320014AC18 /* TagBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBL.swift; sourceTree = "<group>"; };
 		6D745C9F8EEE93B7F58C1579 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8BAB919951E3D4EA70CBA1E3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7711B9711CE2A1875BFF71 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -224,8 +238,8 @@
 		60C3B8681BD206810014AC18 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				60C3B8721BD20BAE0014AC18 /* ParseDAODelegate.swift */,
-				60C3B8741BD20CA90014AC18 /* LateralDAODelegate.swift */,
+				60C3B8911BD33C5E0014AC18 /* PL */,
+				60C3B8931BD33C770014AC18 /* BL */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -236,6 +250,7 @@
 				6060CF5B1BD1D12C0094F010 /* ViewController.swift */,
 				6060CF591BD1D12C0094F010 /* AppDelegate.swift */,
 				60C3B8861BD303110014AC18 /* LoginViewController.swift */,
+				60C3B8881BD330080014AC18 /* RegisterViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -243,9 +258,8 @@
 		60C3B8761BD20D6B0014AC18 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				60C3B8771BD20D850014AC18 /* UserDAO.swift */,
-				60C3B8791BD20E2B0014AC18 /* PaperDAO.swift */,
-				60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */,
+				60C3B8951BD33CAA0014AC18 /* BL */,
+				60C3B8941BD33CA40014AC18 /* PL */,
 			);
 			name = Http;
 			sourceTree = "<group>";
@@ -256,6 +270,45 @@
 				60C3B8801BD2BCFF0014AC18 /* const.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		60C3B8911BD33C5E0014AC18 /* PL */ = {
+			isa = PBXGroup;
+			children = (
+				60C3B8721BD20BAE0014AC18 /* ParseDAODelegate.swift */,
+				60C3B8741BD20CA90014AC18 /* LateralDAODelegate.swift */,
+			);
+			name = PL;
+			sourceTree = "<group>";
+		};
+		60C3B8931BD33C770014AC18 /* BL */ = {
+			isa = PBXGroup;
+			children = (
+				60C3B88A1BD33B0F0014AC18 /* PaperDAODelegate.swift */,
+				60C3B88C1BD33B1F0014AC18 /* TagDAODelegate.swift */,
+				60C3B88E1BD33B2D0014AC18 /* UserDAODelegate.swift */,
+			);
+			name = BL;
+			sourceTree = "<group>";
+		};
+		60C3B8941BD33CA40014AC18 /* PL */ = {
+			isa = PBXGroup;
+			children = (
+				60C3B8771BD20D850014AC18 /* UserDAO.swift */,
+				60C3B8791BD20E2B0014AC18 /* PaperDAO.swift */,
+				60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */,
+			);
+			name = PL;
+			sourceTree = "<group>";
+		};
+		60C3B8951BD33CAA0014AC18 /* BL */ = {
+			isa = PBXGroup;
+			children = (
+				60C3B8961BD33D1C0014AC18 /* UserBL.swift */,
+				60C3B8981BD33D270014AC18 /* PaperBL.swift */,
+				60C3B89A1BD33D320014AC18 /* TagBL.swift */,
+			);
+			name = BL;
 			sourceTree = "<group>";
 		};
 		6FC1538C424301E275DC573C /* Pods */ = {
@@ -460,16 +513,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C3B8871BD303110014AC18 /* LoginViewController.swift in Sources */,
+				60C3B88D1BD33B1F0014AC18 /* TagDAODelegate.swift in Sources */,
+				60C3B89B1BD33D320014AC18 /* TagBL.swift in Sources */,
+				60C3B8991BD33D270014AC18 /* PaperBL.swift in Sources */,
 				60C3B86F1BD2099C0014AC18 /* PaperModel.swift in Sources */,
+				60C3B8971BD33D1C0014AC18 /* UserBL.swift in Sources */,
 				6060CF5C1BD1D12C0094F010 /* ViewController.swift in Sources */,
 				60C3B8751BD20CA90014AC18 /* LateralDAODelegate.swift in Sources */,
 				60C3B8781BD20D850014AC18 /* UserDAO.swift in Sources */,
 				60C3B8811BD2BCFF0014AC18 /* const.swift in Sources */,
 				60C3B87A1BD20E2B0014AC18 /* PaperDAO.swift in Sources */,
 				60C3B8711BD20A9C0014AC18 /* TagModel.swift in Sources */,
+				60C3B88B1BD33B0F0014AC18 /* PaperDAODelegate.swift in Sources */,
 				60C3B86D1BD206A10014AC18 /* UserModel.swift in Sources */,
 				6060CF5A1BD1D12C0094F010 /* AppDelegate.swift in Sources */,
+				60C3B8891BD330080014AC18 /* RegisterViewController.swift in Sources */,
 				60C3B8731BD20BAE0014AC18 /* ParseDAODelegate.swift in Sources */,
+				60C3B88F1BD33B2D0014AC18 /* UserDAODelegate.swift in Sources */,
 				60C3B87C1BD20F1A0014AC18 /* TagDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,33 +7,30 @@
 //
 
 import UIKit
+import Parse
 
-class ViewController: UIViewController,ParseDAODelegate{
+class ViewController: UIViewController,PaperDAODelegate,TagDAODelegate{
     
-    var paper : PaperDAO = PaperDAO()
-
+    var paper = PaperBL()
+    
+    var tag = TagBL()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
-        paper.parseDelegate = self
+        paper.delegate = self
         
-        let p = PaperModel(title:"xxxxx")
+        tag.delegate = self
         
-        p.author = "bbbb"
+        tag.findAllTags()
         
-        p.summary = "xxxxx"
+      //  paper.removePaper(p)
         
-        p.time = "adfasfsd"
+      //  paper.createPaper(p)
         
-        p.category = "cs"
-        
-        p.url = "asdfa"
-        
-    //    paper.createPaper(p)
-        
-        paper.findAllPapers()
-        
+     //   paper.findAllPapers()
         
     }
 
@@ -42,40 +39,69 @@ class ViewController: UIViewController,ParseDAODelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    func findAllSuccess(result: [AnyObject]) {
+    func findAllPapersSuccess(result: [AnyObject]) {
         
         for r in result{
             
-            print((r.title))
+            print(r.title)
         }
-        
     }
     
-    func findAllError(error: NSError) {
-        
-        
-        
-    }
-    
-    func createSuccess() {
-        
-        print("ok")
-        
-    }
-    
-    func createError(error: NSError) {
-        
+    func findAllPapersError(error: NSError) {
         print(error)
+    }
+    
+    func createPaperSuccess() {
+        
+        print("create done!")
+        
         
     }
     
-    func removeSuccess() {
+    func createPaperError(error: NSError) {
+        
         
     }
     
-    func removeError(error: NSError) {
+    func removePaperSuccess() {
+        
         
     }
+    
+    func removePaperError(error: NSError) {
+        
+        
+    }
+    
+    func recommendPapersWithTagsSuccess(result: [AnyObject]) {
+        
+        
+        
+    }
+    
+    func recommendPapersWithTagsError(error: NSError) {
+        
+        
+    }
+    
+    func findAllTagsSuccess(result:[AnyObject]){
+    
+        
+        paper.recommendPaper(result as! [TagModel])
+    
+    
+    }
+    
+    func findAllTagsError(error:NSError){}
+    
+    func createTagSuccess(){}
+    
+    func createTagError(error:NSError){}
+    
+    func removeTagSuccess(){}
+    
+    func removeTagError(error:NSError){}
+
 
 
 }
