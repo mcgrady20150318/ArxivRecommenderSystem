@@ -22,7 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         Parse.setApplicationId("cLglfxuMeIi0f28SKdKksJF5fJfMcKrWIy7iIooC", clientKey: "g8y2qzYiPvjbY8fcO5kQp93LdRi8wWNObtBu3iZ6")
+        
+        let username : String? = NSUserDefaults.standardUserDefaults().stringForKey("username")
+        
+        if username != nil{
+            
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let nav : UINavigationController = mainStoryBoard.instantiateViewControllerWithIdentifier("nav") as! UINavigationController
+            
+            self.window?.rootViewController = nav
+            
+        }
 
+        
         return true
     }
 
