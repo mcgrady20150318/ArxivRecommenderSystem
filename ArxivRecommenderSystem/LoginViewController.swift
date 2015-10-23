@@ -24,6 +24,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
         
         password.delegate = self
         
+        self.password.secureTextEntry = true
+        
     }
     
     override func didReceiveMemoryWarning() {

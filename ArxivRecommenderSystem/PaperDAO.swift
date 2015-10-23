@@ -13,9 +13,9 @@ import SwiftyJSON
 
 class PaperDAO{
     
-    var parseDelegate : ParseDAODelegate?
+    var parseDelegate : ParseDAODelegate!
     
-    var lateralDelegate : LateralDAODelegate?
+    var lateralDelegate : LateralDAODelegate!
     
     class var sharedInstance: PaperDAO {
         
@@ -41,13 +41,15 @@ class PaperDAO{
       //  print((PFUser.currentUser()?.sessionToken)!)
         let query = PFQuery(className: "Paper")
         
+        query.fromLocalDatastore()
+        
         query.whereKey("user", equalTo: PFUser.currentUser()!)
         
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
                     
             if error != nil{
                         
-                self.parseDelegate?.findAllError(error!)
+                self.parseDelegate.findAllError(error!)
             
                         
             }else{
@@ -73,12 +75,16 @@ class PaperDAO{
                         paper.time = objects[i].valueForKey("time") as? String
                                 
                         paper.url = objects[i].valueForKey("url") as? String
+                        
+                        paper.isLike = objects[i].valueForKey("isLike") as? Bool
+                        
+                        paper.file = objects[i].valueForKey("file") as? String
                                 
                         paperlist.append(paper)
                                 
                     }
                             
-                    self.parseDelegate?.findAllSuccess(paperlist)
+                    self.parseDelegate.findAllSuccess(paperlist)
                     
                     
                 }
@@ -90,6 +96,39 @@ class PaperDAO{
 
     }
     
+    func findOneByTitle(paper : PaperModel){
+        
+        let query = PFQuery(className: "Paper")
+        
+        query.fromLocalDatastore()
+        
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
+        
+        query.whereKey("title", equalTo: paper.title!)
+        
+        query.findObjectsInBackgroundWithBlock { (papers:[PFObject]?, error:NSError?) -> Void in
+            
+            if error == nil{
+                
+                if papers?.count > 0{
+                    
+                    self.parseDelegate.findOneByTitleSuccess(true)
+                    
+                }else{
+                    
+                    self.parseDelegate.findOneByTitleSuccess(false)
+                }
+                
+                
+            }else{
+                
+                self.parseDelegate.findOneByTitleError(error!)
+            }
+            
+        }
+        
+    }
+    
     func create(paper : PaperModel){
         
         let paperObject = PFObject(className: "Paper")
@@ -98,7 +137,7 @@ class PaperDAO{
         
         paperObject["author"] = paper.author
         
-        paperObject["category"] = paper.category
+    //    paperObject["category"] = paper.category
         
         paperObject["summary"] = paper.summary
         
@@ -106,22 +145,39 @@ class PaperDAO{
         
         paperObject["url"] = paper.url
         
-      //  print(PFUser.currentUser())
+        paperObject["isLike"] = true
+        
+    //    print(PFUser.currentUser())
         
         paperObject["user"] = (PFUser.currentUser()!)
         
-        paperObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+        paperObject.pinInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             
             if success{
                 
-                self.parseDelegate?.createSuccess()
+                self.parseDelegate.createSuccess()
                 
             }else{
                 
-                self.parseDelegate?.createError(error!)
+                self.parseDelegate.createError(error!)
             }
             
         }
+        
+        paperObject.saveEventually()
+        
+        /*paperObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            
+            if success{
+                
+                self.parseDelegate.createSuccess()
+                
+            }else{
+                
+                self.parseDelegate.createError(error!)
+            }
+            
+        }*/
         
     }
     
@@ -137,7 +193,7 @@ class PaperDAO{
             
             if error != nil{
                 
-                self.parseDelegate?.removeError(error!)
+                self.parseDelegate.removeError(error!)
                 
             }else{
                 
@@ -145,20 +201,40 @@ class PaperDAO{
                     
                     for paper in papers{
                         
-                        paper.deleteInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                        paper.unpinInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                             
                             if success{
                                 
-                                self.parseDelegate?.removeSuccess()
+                                self.parseDelegate.removeSuccess()
                                 
                             }else{
                                 
-                                self.parseDelegate?.removeError(error!)
-                                
+                                self.parseDelegate.removeError(error!)
                             }
+                        
+                        })
+                        
+                        paper.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                            
+                            paper.deleteInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                                
+                                if success{
+                                    
+                                    self.parseDelegate.removeSuccess()
+                                    
+                                }else{
+                                    
+                                    self.parseDelegate.removeError(error!)
+                                    
+                                }
+                                
+                                
+                            })
                             
                             
                         })
+                        
+                        
                     }
                     
                     
@@ -180,11 +256,11 @@ class PaperDAO{
             
         for tag in tags{
             
-            str.appendContentsOf(" ")
+            str  += " "
             
             if let name = tag.name{
                 
-                str.appendContentsOf(name)
+                str += name
                 
             }
             
@@ -227,6 +303,8 @@ class PaperDAO{
                             
                             paper.url = data[i]["url"].stringValue
                             
+                            paper.isLike = false
+                            
                        //     print(paper.title)
                             
                             paperlist.append(paper)
@@ -234,7 +312,7 @@ class PaperDAO{
                         }
                         
                         
-                        self.lateralDelegate?.recommendPapersByTagsSuccess(paperlist)
+                        self.lateralDelegate.recommendPapersByTagsSuccess(paperlist)
                         
                         
                     }else{
@@ -254,7 +332,7 @@ class PaperDAO{
                     
                 }else{
                     
-                    self.lateralDelegate?.recommendPapersByTagsError(response.result.error!)
+                    self.lateralDelegate.recommendPapersByTagsError(response.result.error!)
                     
                 }
                 

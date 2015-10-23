@@ -26,6 +26,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         emailField.delegate = self
         
+        passwordField.secureTextEntry = true
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,6 +100,21 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         })
                 
     }
+    
+    
+    @IBAction func BackToLogin(sender: AnyObject) {
+        
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let login : LoginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window?.rootViewController = login
+        
+        
+    }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         

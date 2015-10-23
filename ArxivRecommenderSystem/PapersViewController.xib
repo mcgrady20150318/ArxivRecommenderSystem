@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PapersViewController" customModule="ArxivRecommenderSystem" customModuleProvider="target">
             <connections>
                 <outlet property="PaperTableView" destination="oNS-fA-ZAw" id="sB8-Pw-2An"/>
+                <outlet property="indicator" destination="PeR-fD-hVa" id="rq3-93-Lj4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="gub-9A-veb">
-                    <rect key="frame" x="0.0" y="616" width="375" height="51"/>
+                    <rect key="frame" x="0.0" y="617" width="376" height="50"/>
                     <animations/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oNS-fA-ZAw">
@@ -24,6 +25,18 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-gZ-ReU">
+                    <rect key="frame" x="30" y="514" width="60" height="60"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="return"/>
+                    <connections>
+                        <action selector="ReturnToHome:" destination="-1" eventType="touchUpInside" id="XQq-X0-hiV"/>
+                    </connections>
+                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-fD-hVa">
+                    <rect key="frame" x="177" y="318" width="20" height="20"/>
+                    <animations/>
+                </activityIndicatorView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -33,5 +46,6 @@
     </objects>
     <resources>
         <image name="footer" width="375" height="44"/>
+        <image name="return" width="351" height="276"/>
     </resources>
 </document>

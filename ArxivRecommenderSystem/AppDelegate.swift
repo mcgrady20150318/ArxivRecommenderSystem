@@ -33,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.rootViewController = nav
             
+        }else{
+            
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let login : LoginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+            
+            self.window?.rootViewController = login
+            
+            
         }
 
         

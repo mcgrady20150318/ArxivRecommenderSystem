@@ -9,9 +9,9 @@
 import Foundation
 
 
-class TagBL : ParseDAODelegate{
+class TagBL : ParseDAODelegate,LateralDAODelegate{
     
-    var delegate : TagDAODelegate?
+    var delegate : TagDAODelegate!
     
     func findAllTags(){
         
@@ -44,41 +44,82 @@ class TagBL : ParseDAODelegate{
 
     }
     
-    func findAllSuccess(result:[AnyObject]){
+    func recommendTags(paper : PaperModel){
         
-        self.delegate?.findAllTagsSuccess(result)
+        
+        let tag = TagDAO.sharedInstance
+        
+        tag.lateralDelegate = self
+        
+        tag.findAllTagsRecommendedByPapers(paper)
         
     }
     
-    func findAllError(error:NSError){
+    func findAllSuccess(result:[AnyObject]){
         
-        self.delegate?.findAllTagsError(error)
+        self.delegate.findAllTagsSuccess!(result)
+        
+    }
+    
+    @objc func findAllError(error:NSError){
+        
+        self.delegate.findAllTagsError!(error)
         
     }
     
     func createSuccess(){
         
-        self.delegate?.createTagSuccess()
+        self.delegate.createTagSuccess!()
         
     }
     
     func createError(error:NSError){
         
-        self.delegate?.createTagError(error)
+        self.delegate.createTagError!(error)
         
     }
     
     func removeSuccess(){
         
-        self.delegate?.removeTagSuccess()
+        self.delegate.removeTagSuccess!()
         
     }
     
     func removeError(error:NSError){
         
-        self.delegate?.removeTagError(error)
+        self.delegate.removeTagError!(error)
         
     }
+    
+    func recommendPapersByTagsSuccess(result: [AnyObject]) {
+        
+        
+        
+    }
+    
+    func recommendPapersByTagsError(error: NSError) {
+        
+        
+        
+    }
+    
+    func recommendTagsByPapersSuccess(result: [AnyObject]) {
+        
+        self.delegate.recommendTagsWithPaperSuccess!(result)
+        
+        
+    }
+    
+    func recommendTagsByPapersError(error: NSError) {
+        
+        self.delegate.recommendTagsWithPaperError!(error)
+        
+        
+    }
+    
+    func findOneByTitleSuccess(result:Bool){}
+    
+    func findOneByTitleError(error:NSError){}
     
 
     

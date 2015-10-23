@@ -8,19 +8,22 @@
 
 import UIKit
 
-class PaperCell: UITableViewCell {
+class PaperCell: UITableViewCell{
 
     @IBOutlet weak var PaperShotImage: UIImageView!
     @IBOutlet weak var Title: UILabel!
     @IBOutlet weak var Author: UILabel!
     @IBOutlet weak var Time: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
+       
+        
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -35,5 +38,6 @@ class PaperCell: UITableViewCell {
         self.Time.text = paper.time
         
     }
-    
+
+
 }

@@ -8,18 +8,22 @@
 
 import Foundation
 
-protocol TagDAODelegate{
+@objc protocol TagDAODelegate{
     
-    func findAllTagsSuccess(result:[AnyObject])
+    optional func findAllTagsSuccess(result:[AnyObject])
     
-    func findAllTagsError(error:NSError)
+    optional func findAllTagsError(error:NSError)
     
-    func createTagSuccess()
+    optional func createTagSuccess()
     
-    func createTagError(error:NSError)
+    optional func createTagError(error:NSError)
     
-    func removeTagSuccess()
+    optional func removeTagSuccess()
     
-    func removeTagError(error:NSError)
+    optional func removeTagError(error:NSError)
+    
+    optional func recommendTagsWithPaperSuccess(result:[AnyObject])
+    
+    optional func recommendTagsWithPaperError(error:NSError)
     
 }

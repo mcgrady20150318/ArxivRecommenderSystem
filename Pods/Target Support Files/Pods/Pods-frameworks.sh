@@ -86,10 +86,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/CryptoSwift.framework"
+  install_framework "Pods/M13PDFKit.framework"
   install_framework "Pods/SwiftyJSON.framework"
+  install_framework "Pods/TTOpenInAppActivity.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/CryptoSwift.framework"
+  install_framework "Pods/M13PDFKit.framework"
   install_framework "Pods/SwiftyJSON.framework"
+  install_framework "Pods/TTOpenInAppActivity.framework"
 fi

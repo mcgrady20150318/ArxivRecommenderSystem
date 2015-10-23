@@ -24,6 +24,10 @@ class PaperModel : NSObject{
     
     var userid : Int?
     
+    var isLike : Bool?
+    
+    var file : String?
+    
     init(title : String){
         
         self.title = title

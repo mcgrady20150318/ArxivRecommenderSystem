@@ -13,9 +13,9 @@ import SwiftyJSON
 
 class TagDAO{
     
-    var parseDelegate : ParseDAODelegate?
+    var parseDelegate : ParseDAODelegate!
     
-    var lateralDelegate : LateralDAODelegate?
+    var lateralDelegate : LateralDAODelegate!
     
     let query = PFQuery(className: "Tag")
     
@@ -44,11 +44,13 @@ class TagDAO{
         
         query.whereKey("user", equalTo:PFUser.currentUser()!)
         
+        query.fromLocalDatastore()
+        
         query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
             
             if error != nil{
                 
-                self.parseDelegate?.findAllError(error!)
+                self.parseDelegate.findAllError(error!)
                 
                 print(error)
                 
@@ -62,13 +64,13 @@ class TagDAO{
                         
                         let tag = TagModel(name:"")
                         
-                        tag.name = objects[i].valueForKey("name") as! String
+                        tag.name = objects[i].valueForKey("name") as? String
                         
                         taglist.append(tag)
                         
                     }
                     
-                    self.parseDelegate?.findAllSuccess(taglist)
+                    self.parseDelegate.findAllSuccess(taglist)
                     
                 }
                 
@@ -77,9 +79,9 @@ class TagDAO{
         }
 
         
-        
     }
     
+
     func create(tag : TagModel){
         
         let tagObject = PFObject(className: "Tag")
@@ -88,18 +90,36 @@ class TagDAO{
         
         tagObject["user"] = PFUser.currentUser()!
         
-        tagObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+        tagObject.pinInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
             
             if success{
                 
-                self.parseDelegate?.createSuccess()
+                self.parseDelegate.createSuccess()
+                
                 
             }else{
                 
-                self.parseDelegate?.createError(error!)
+                self.parseDelegate.createError(error!)
+                
+                
             }
             
         }
+        
+        tagObject.saveEventually()
+        
+      /*  tagObject.saveInBackgroundWithBlock { (success:Bool, error:NSError?) -> Void in
+            
+            if success{
+                
+                self.parseDelegate.createSuccess()
+                
+            }else{
+                
+                self.parseDelegate.createError(error!)
+            }
+            
+        }*/
         
     }
     
@@ -115,7 +135,7 @@ class TagDAO{
             
             if error != nil{
                 
-                self.parseDelegate?.removeError(error!)
+                self.parseDelegate.removeError(error!)
                 
             }else{
                 
@@ -125,20 +145,41 @@ class TagDAO{
                     
                     for tag in tags{
                         
-                        tag.deleteInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                        // local remove
+                        
+                        tag.unpinInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                             
                             if success{
                                 
-                                self.parseDelegate?.removeSuccess()
+                                self.parseDelegate.removeSuccess()
                                 
                             }else{
                                 
-                                self.parseDelegate?.removeError(error!)
+                                self.parseDelegate.removeError(error!)
                             }
-                            
                             
                         })
                         
+                        tag.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                        
+                            tag.deleteInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                                
+                                if success{
+                                    
+                                    self.parseDelegate.removeSuccess()
+                                    
+                                }else{
+                                    
+                                    self.parseDelegate.removeError(error!)
+                                }
+                                
+                                
+                            })
+                            
+                            
+                        })
+                
+                    
                     }
                     
                 }
@@ -151,38 +192,45 @@ class TagDAO{
         
     }
     
-   /* func findAllTagsRecommendedByPapers(papers : [PaperModel]){
+    func findAllTagsRecommendedByPapers(paper : PaperModel){
         
-        var taglist : [String]?
-        
-        for paper in papers{
+        var taglist : [String] =  []
             
-            let url = "https://document-parser-api.lateral.io/?url=\(paper.url)"
+        let url = "https://document-parser-api.lateral.io/?url=\((paper.url)!)"
             
-            Alamofire.request(.GET, url, parameters:nil, encoding: .JSON, headers:Lateral_Headers)
+        Alamofire.request(.GET, url, parameters:nil, encoding: .JSON, headers:Lateral_Headers)
                 
-                .responseJSON{ response in
+            .responseJSON{ response in
                     
-                    if let result = response.result.value{
+                if let result = response.result.value{
                         
-                        if let data = JSON(rawValue: result){
+                    if let data = JSON(rawValue: result){
                             
-                            // processing data
-                            
-                            
-                            
-                            
-                            
-                        }else{
-                            
-                            //json error
+                        // processing data
+                        
+                        for keyword in data["keywords"]{
+                                
+                            taglist.append(keyword.1.string!)
+                                
                         }
                         
+                        print(taglist)
+                        
+                        self.lateralDelegate?.recommendTagsByPapersSuccess(taglist)
+                    
+         
                     }else{
+                            
+                            //json error
                         
-                         self.lateralDelegate?.recommendPapersByTagsError(response.result.error!)
-                        
+                        print("json parse error")
                     }
+                        
+                }else{
+                        
+                    self.lateralDelegate?.recommendPapersByTagsError(response.result.error!)
+                        
+                }
                     
                     
             }
@@ -190,9 +238,11 @@ class TagDAO{
             
         }
     }
+
+
     
 
-        */
     
     
-}
+    
+

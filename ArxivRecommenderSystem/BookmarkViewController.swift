@@ -1,20 +1,21 @@
 //
-//  PaperViewController.swift
+//  BookmarkViewController.swift
 //  ArxivRecommenderSystem
 //
-//  Created by zhangjun on 15/10/18.
+//  Created by zhangjun on 15/10/22.
 //  Copyright © 2015年 zhangjun. All rights reserved.
 //
 
 import UIKit
 
-class PapersViewController: UIViewController, UITableViewDataSource , UITableViewDelegate , PaperDAODelegate,TagDAODelegate{
+class BookmarkViewController: UIViewController,UITableViewDataSource , UITableViewDelegate , PaperDAODelegate,TagDAODelegate{
+
+    @IBOutlet weak var BookmarkPaperTableView: UITableView!
     
     var paperlist : [PaperModel] = []
     
     var paperBL = PaperBL()
     
-    var tagBL = TagBL()
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var PaperTableView: UITableView!
@@ -26,9 +27,6 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
         
         self.loadData()
         
-        self.setupUI()
-        
-        
         
     }
     
@@ -39,13 +37,6 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
     
     /* ui init */
     
-    func setupUI(){
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"header"), forBarMetrics: UIBarMetrics.Default)
-        
-        self.indicator.startAnimating()
-        
-    }
     
     /* data init */
     
@@ -53,29 +44,15 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
         
         self.paperBL.delegate = self
         
-        self.tagBL.delegate = self
+        BookmarkPaperTableView.delegate = self
         
-        PaperTableView.delegate = self
+        BookmarkPaperTableView.dataSource = self
         
-        PaperTableView.dataSource = self
-        
-        self.tagBL.findAllTags()
-        
-    }
-    
-    
-    @IBAction func ReturnToHome(sender: AnyObject) {
-        
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let nav : UINavigationController = mainStoryBoard.instantiateViewControllerWithIdentifier("nav") as! UINavigationController
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.window?.rootViewController = nav
+        self.paperBL.findAllPapers()
         
         
     }
+    
     
     /* data source */
     
@@ -87,7 +64,7 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        self.PaperTableView.registerNib(UINib(nibName:"PaperCell",bundle:nil), forCellReuseIdentifier: "PaperCell")
+        self.BookmarkPaperTableView.registerNib(UINib(nibName:"PaperCell",bundle:nil), forCellReuseIdentifier: "PaperCell")
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PaperCell") as! PaperCell
         
@@ -102,7 +79,7 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
         return cell
         
     }
-  
+    
     
     /* delegate */
     
@@ -130,57 +107,47 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
         
         paperdetailVC.paper = self.paperlist[indexPath.row]
         
-        
         self.navigationController?.pushViewController(paperdetailVC, animated: true)
         
     }
     
-    func findAllPapersSuccess(result:[AnyObject]){}
-    
-    func findAllPapersError(error:NSError){}
-    
-    func createPaperSuccess(){
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        print("create paper done!")
+        self.paperlist.removeAtIndex(indexPath.row)
+        
+        self.paperBL.removePaper(self.paperlist[indexPath.row])
+        
+        self.BookmarkPaperTableView.reloadData()
+        
+    }
+    
+    func findAllPapersSuccess(result:[AnyObject]){
+        
+        self.paperlist = result as! [PaperModel]
+        
+        self.BookmarkPaperTableView.reloadData()
     
     }
     
-    func createPaperError(error:NSError){}
+    func findAllPapersError(error:NSError){}
+    
     
     func removePaperSuccess(){
-    
+        
         print("remove paper done!")
         
     }
     
     func removePaperError(error:NSError){}
     
-    func recommendPapersWithTagsSuccess(result:[AnyObject]){
-        
-        self.paperlist = result as! [PaperModel]
-        
-        self.PaperTableView.reloadData()
-        
-        self.indicator.stopAnimating()
-        
-        self.indicator.hidesWhenStopped = true
-        
-        print("recommend papers ok!")
-        
-    }
+
     
-    func recommendPapersWithTagsError(error:NSError){}
-    
-    func findAllTagsSuccess(result:[AnyObject]){
-        
-        paperBL.recommendPaper(result as! [TagModel])
-        
-        print("find all tags")
-        
-    }
-    
- 
+
     
     
     
+
+    
+
+
 }

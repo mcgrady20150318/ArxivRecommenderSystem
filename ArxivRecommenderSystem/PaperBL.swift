@@ -11,7 +11,7 @@ import Parse
 
 class PaperBL : ParseDAODelegate,LateralDAODelegate{
     
-    var delegate : PaperDAODelegate?
+    var delegate : PaperDAODelegate!
     
     func findAllPapers(){
         
@@ -22,6 +22,17 @@ class PaperBL : ParseDAODelegate,LateralDAODelegate{
         paper.findAll()
         
     }
+    
+    func findOnePaperByTitle(p:PaperModel){
+        
+        let paper = PaperDAO.sharedInstance
+        
+        paper.parseDelegate = self
+        
+        paper.findOneByTitle(p)
+        
+    }
+
     
     func createPaper(p:PaperModel){
         
@@ -56,49 +67,71 @@ class PaperBL : ParseDAODelegate,LateralDAODelegate{
     
     func findAllSuccess(result:[AnyObject]){
         
-        self.delegate?.findAllPapersSuccess(result)
+        self.delegate.findAllPapersSuccess!(result)
     
     }
     
     func findAllError(error:NSError){
     
-        self.delegate?.findAllPapersError(error)
+        self.delegate.findAllPapersError!(error)
+        
+    }
+    
+    func findOneByTitleSuccess(result:Bool){
+        
+        self.delegate.findOnePaperByTitleSuccess!(result)
+        
+    }
+    
+    func findOneByTitleError(error:NSError){
+        
+        self.delegate.findOnePaperByTitleError!(error)
         
     }
     
     func createSuccess(){
         
-        self.delegate?.createPaperSuccess()
+        self.delegate.createPaperSuccess!()
     
     }
     
     func createError(error:NSError){
         
-        self.delegate?.createPaperError(error)
+        self.delegate.createPaperError!(error)
     
     }
     
     func removeSuccess(){
     
-        self.delegate?.removePaperSuccess()
+        self.delegate.removePaperSuccess!()
     
     }
     
     func removeError(error:NSError){
         
-        self.delegate?.removePaperError(error)
+        self.delegate.removePaperError!(error)
     
     }
     
     func recommendPapersByTagsSuccess(result: [AnyObject]) {
         
-        self.delegate?.recommendPapersWithTagsSuccess(result)
+        self.delegate.recommendPapersWithTagsSuccess!(result)
         
     }
     
     func recommendPapersByTagsError(error: NSError) {
         
-        self.delegate?.recommendPapersWithTagsError(error)
+        self.delegate.recommendPapersWithTagsError!(error)
+        
+    }
+    
+    func recommendTagsByPapersSuccess(result: [AnyObject]) {
+        
+        
+    }
+    
+    func recommendTagsByPapersError(error: NSError) {
+        
         
     }
     

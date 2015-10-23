@@ -21,7 +21,7 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tagListView: AMTagListView!
-    @IBOutlet weak var PaperButton: UIButton!
+    @IBOutlet weak var RecommendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"header"), forBarMetrics: UIBarMetrics.Default)
         
-        self.PaperButton.hidden = true
+        self.RecommendButton.hidden = true
         
         textField.layer.borderColor = UIColor(red:0.12, green:0.25, blue:0.84, alpha:1).CGColor
         textField.layer.borderWidth = 2.0
@@ -96,13 +96,55 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
     
     /* Action */
     
-    @IBAction func GotoPaperViewController(sender: AnyObject) {
+    
+    @IBAction func exitBtn(sender: AnyObject) {
+        
+        PFUser.logOutInBackgroundWithBlock { (error:NSError?) -> Void in
+            
+            if error == nil{
+                
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("username")
+                
+                NSUserDefaults.standardUserDefaults().synchronize()
+                
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let login : LoginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+                appDelegate.window?.rootViewController = login
+                
+            }
+            
+        }
+        
+    }
+    
+    
+
+    
+    @IBAction func GoToPaperViewController(sender: AnyObject) {
         
         let paperVC = PapersViewController(nibName: "PapersViewController", bundle: nil)
         
-        self.navigationController?.pushViewController(paperVC, animated: true)
-
+        self.navigationController?.pushViewController(paperVC, animated: false)
+        
+        
     }
+    
+    
+    @IBAction func GoToBookmarkViewController(sender: AnyObject) {
+        
+        let bookmarkVC = BookmarkViewController(nibName: "BookmarkViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(bookmarkVC, animated: false)
+        
+        
+    }
+    
+    
+
     
     
     /* delegate implement */
@@ -117,11 +159,19 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
         
         textField.text = ""
         
+        textField.resignFirstResponder()
+        
         return false
         
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        textField.resignFirstResponder()
+        
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         textField.resignFirstResponder()
         
@@ -139,7 +189,7 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
         
         tagListView.addTags(self.tags)
         
-        self.PaperButton.hidden = false
+        self.RecommendButton.hidden = false
         
         self.indicatorView?.stopAnimating()
         
@@ -152,6 +202,8 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
     }
     
     func createTagSuccess() {
+        
+        
         
         print("create ok!")
         
@@ -174,6 +226,9 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
         
         
     }
+    
+  
+
     
     
     

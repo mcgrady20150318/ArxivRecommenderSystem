@@ -1,11 +1,15 @@
 PODS:
   - Alamofire (3.0.0)
   - CryptoSwift (0.1.1)
+  - M13PDFKit (1.1.0):
+    - TTOpenInAppActivity
   - SwiftyJSON (2.3.0)
+  - TTOpenInAppActivity (1.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
   - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
+  - M13PDFKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -31,6 +35,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
   CryptoSwift: c11640d3d66107efc8333e4131a5173f072b1d61
+  M13PDFKit: 4417c8a98dd22c0fe1e615f40bdf38848bb3b367
   SwiftyJSON: cacfe0373d584585716bd1d43202c24cc66afd65
+  TTOpenInAppActivity: c2218fe419d03ddd4ffb1f07d52d66e0d213d0d4
 
 COCOAPODS: 0.39.0

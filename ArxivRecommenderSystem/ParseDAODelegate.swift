@@ -8,11 +8,15 @@
 
 import Foundation
 
-protocol ParseDAODelegate{
+protocol ParseDAODelegate {
     
     func findAllSuccess(result:[AnyObject])
     
     func findAllError(error:NSError)
+    
+    func findOneByTitleSuccess(result:Bool)
+    
+    func findOneByTitleError(error:NSError)
     
     func createSuccess()
     

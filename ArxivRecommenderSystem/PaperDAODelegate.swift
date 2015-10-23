@@ -8,23 +8,27 @@
 
 import Foundation
 
-protocol PaperDAODelegate{
+@objc protocol PaperDAODelegate{
     
-    func findAllPapersSuccess(result:[AnyObject])
+    optional func findAllPapersSuccess(result:[AnyObject])
     
-    func findAllPapersError(error:NSError)
+    optional func findAllPapersError(error:NSError)
     
-    func createPaperSuccess()
+    optional func findOnePaperByTitleSuccess(result:Bool)
     
-    func createPaperError(error:NSError)
+    optional func findOnePaperByTitleError(error:NSError)
     
-    func removePaperSuccess()
+    optional func createPaperSuccess()
     
-    func removePaperError(error:NSError)
+    optional func createPaperError(error:NSError)
     
-    func recommendPapersWithTagsSuccess(result:[AnyObject])
+    optional func removePaperSuccess()
     
-    func recommendPapersWithTagsError(error:NSError)
+    optional func removePaperError(error:NSError)
+    
+    optional func recommendPapersWithTagsSuccess(result:[AnyObject])
+    
+    optional func recommendPapersWithTagsError(error:NSError)
 
 
 }
