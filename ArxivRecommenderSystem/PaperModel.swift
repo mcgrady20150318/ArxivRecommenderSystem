@@ -26,7 +26,7 @@ class PaperModel : NSObject{
     
     var isLike : Bool?
     
-    var file : String?
+    var isDownload : Bool?
     
     init(title : String){
         

@@ -798,6 +798,7 @@
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",
 				);
 				INFOPLIST_FILE = ArxivRecommenderSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mcgrady20150318.www.ArxivRecommenderSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -817,6 +818,7 @@
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",
 				);
 				INFOPLIST_FILE = ArxivRecommenderSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mcgrady20150318.www.ArxivRecommenderSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";

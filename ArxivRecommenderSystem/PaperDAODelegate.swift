@@ -22,6 +22,10 @@ import Foundation
     
     optional func createPaperError(error:NSError)
     
+    optional func updatePaperSuccess()
+    
+    optional func updatePaperError(error:NSError)
+    
     optional func removePaperSuccess()
     
     optional func removePaperError(error:NSError)

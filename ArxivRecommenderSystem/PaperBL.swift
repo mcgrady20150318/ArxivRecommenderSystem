@@ -44,6 +44,16 @@ class PaperBL : ParseDAODelegate,LateralDAODelegate{
         
     }
     
+    func updatePaper(p:PaperModel){
+        
+        let paper = PaperDAO.sharedInstance
+        
+        paper.parseDelegate = self
+        
+        paper.update(p)
+        
+    }
+    
     func removePaper(p:PaperModel){
         
         let paper = PaperDAO.sharedInstance
@@ -99,6 +109,17 @@ class PaperBL : ParseDAODelegate,LateralDAODelegate{
         
         self.delegate.createPaperError!(error)
     
+    }
+    
+    func updateSuccess() {
+        
+        self.delegate.updatePaperSuccess!()
+    }
+    
+    func updateError(error: NSError) {
+        
+        self.delegate.updatePaperError!(error)
+        
     }
     
     func removeSuccess(){

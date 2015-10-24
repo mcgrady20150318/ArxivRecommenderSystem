@@ -32,6 +32,8 @@ class ViewController: UIViewController,PaperDAODelegate,TagDAODelegate{
         
      //   paper.findAllPapers()
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

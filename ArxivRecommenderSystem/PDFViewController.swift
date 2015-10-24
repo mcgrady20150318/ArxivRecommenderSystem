@@ -14,7 +14,7 @@ class PDFViewController: UIViewController,UIWebViewDelegate{
     @IBOutlet weak var PDFViewer: UIWebView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var url : String?
+    var url : NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +37,17 @@ class PDFViewController: UIViewController,UIWebViewDelegate{
         
       //  var url = "http://arxiv.org/pdf/1201.4339v1.pdf"
         
-        self.PDFViewer.stringByEvaluatingJavaScriptFromString("document.body.style.zoom=0.5")
+        self.PDFViewer.scalesPageToFit = true
         
         if let url = url{
             
-            print(url)
+       //     print(url)
             
-            let pdfurl = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+          //  let pdfurl = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             
-            let pdfURL = NSURL(string: pdfurl)!
+          //  let pdfURL = NSURL(string: pdfurl)!
             
-            let urlRequest = NSURLRequest(URL: pdfURL)
+            let urlRequest = NSURLRequest(URL: url)
             
             PDFViewer.loadRequest(urlRequest)
             

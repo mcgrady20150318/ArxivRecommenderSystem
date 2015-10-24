@@ -121,6 +121,16 @@ class TagBL : ParseDAODelegate,LateralDAODelegate{
     
     func findOneByTitleError(error:NSError){}
     
+    func updateSuccess() {
+        
+        
+    }
+    
+    func updateError(error: NSError) {
+        
+        
+    }
+    
 
     
 }

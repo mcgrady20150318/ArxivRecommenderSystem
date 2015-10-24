@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFMInfoBanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CVKHierarchySearcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,7 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D1F64E6E12655E8FA1202854DBDF571</key>
+		<key>17B851C4AAF494C4C1C1447382E7FD81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A051FEF8CFE820C362DBCB4FD364072</key>
+		<key>54423FC0D90B7BF336569FD6B3ED0241</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73F225708372810A244D238F4586AAC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>CF658A88E8561D9864067744094F7B54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E73654F55A156F55351F1266E04812BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

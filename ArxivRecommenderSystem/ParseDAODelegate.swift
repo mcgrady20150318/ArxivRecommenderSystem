@@ -18,6 +18,10 @@ protocol ParseDAODelegate {
     
     func findOneByTitleError(error:NSError)
     
+    func updateSuccess()
+    
+    func updateError(error:NSError)
+    
     func createSuccess()
     
     func createError(error:NSError)

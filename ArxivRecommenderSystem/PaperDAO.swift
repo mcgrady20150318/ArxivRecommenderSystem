@@ -78,12 +78,14 @@ class PaperDAO{
                         
                         paper.isLike = objects[i].valueForKey("isLike") as? Bool
                         
-                        paper.file = objects[i].valueForKey("file") as? String
+                        paper.isDownload = objects[i].valueForKey("isDownload") as? Bool
+                        
+                     //   print(paper.file)
                                 
                         paperlist.append(paper)
                                 
                     }
-                            
+                    
                     self.parseDelegate.findAllSuccess(paperlist)
                     
                     
@@ -129,6 +131,58 @@ class PaperDAO{
         
     }
     
+    func update(paper : PaperModel){
+        
+        //update isDownload
+        
+        let query = PFQuery(className: "Paper")
+        
+        query.fromLocalDatastore()
+        
+        query.whereKey("title", equalTo: paper.title!)
+        
+        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error:NSError?) -> Void in
+            
+            if error == nil{
+                
+                if let objects = objects{
+                    
+                    for object in objects{
+                        
+                        object["isDownload"] = true
+                        
+                        object.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                            
+                            if(error == nil){
+                                
+                                self.parseDelegate.updateSuccess()
+                                
+                                object.saveEventually()
+                                
+                            }else{
+                                
+                                self.parseDelegate.updateError(error!)
+                            }
+  
+
+                        })
+                        
+                        
+                    }
+                    
+                    
+                }
+  
+                
+            }else{
+                
+                self.parseDelegate.updateError(error!)
+            }
+            
+        }
+        
+    }
+    
     func create(paper : PaperModel){
         
         let paperObject = PFObject(className: "Paper")
@@ -146,6 +200,8 @@ class PaperDAO{
         paperObject["url"] = paper.url
         
         paperObject["isLike"] = true
+        
+        paperObject["isDownload"] = false
         
     //    print(PFUser.currentUser())
         

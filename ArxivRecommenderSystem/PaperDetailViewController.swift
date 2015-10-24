@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AFMInfoBanner
 
 class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelegate{
     
@@ -22,6 +24,8 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
     @IBOutlet weak var summary: UITextView!
     @IBOutlet weak var url: UILabel!
     @IBOutlet weak var Like: UIButton!
+    @IBOutlet weak var PDF: UIButton!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
@@ -56,6 +60,8 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
         
         tagBL.delegate = self
         
+        self.indicator.hidden = true
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"header"), forBarMetrics: UIBarMetrics.Default)
         
         self.titlename.text = self.paper.title
@@ -76,6 +82,14 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
                 
                 self.Like.alpha = 1.0
                 
+                if self.paper.isDownload == true{
+                    
+                    self.PDF.setTitle("View PDF", forState: UIControlState.Normal)
+                    
+                }else{
+                    
+                    self.PDF.setTitle("Download PDF", forState: UIControlState.Normal)
+                }
                 
             }else{
                 
@@ -84,7 +98,12 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
                 self.Like.alpha = 0.4
                 
             }
+        }else{
+            
+            self.PDF.hidden = true
+            
         }
+        
         
     }
     
@@ -123,15 +142,83 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
         
         //url = "http://arxiv.org/abs/1201.4339"
         
+        //download pdf first
+        
         let id = paper.url!.componentsSeparatedByString("/")[4]
         
         let url = "http://arxiv.org/pdf/\(id)v1.pdf"
         
-        let PDFViewer = PDFViewController()
+        if self.paper.isDownload == false{
+            
+            //download
+            
+            self.indicator.hidden = false
+            
+            self.indicator.startAnimating()
+            
+            Alamofire.download(.GET, url) { temporaryURL, response in
+                
+                let fileManager = NSFileManager.defaultManager()
+                let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+                
+                //button = "view pdf"
+                
+                return directoryURL.URLByAppendingPathComponent("\(id)v1.pdf")
+                
+                }.progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
+                    print(totalBytesRead)
+                    
+                    // This closure is NOT called on the main queue for performance
+                    // reasons. To update your ui, dispatch to the main queue.
+                    dispatch_async(dispatch_get_main_queue()) {
+                        print("Total bytes read on main queue: \(totalBytesRead)")
+                    }
+                    
+                   
+                }.response { _, _, _, error in
+                    if let error = error {
+                        print("Failed with error: \(error)")
+                    } else {
+                        print("Downloaded file successfully")
+                        
+                        self.indicator.stopAnimating()
+                        
+                        self.indicator.hidesWhenStopped = true
+                        
+                        self.PDF.setTitle("View PDF", forState: UIControlState.Normal)
+                        
+                        AFMInfoBanner.showAndHideWithText("Paper Download Successfully", style: AFMInfoBannerStyle.Error)
+                        
+                        //update database paper file
+                        
+                        self.paperBL.updatePaper(self.paper)
+                        
+                        self.paper.isDownload = true
+                    }
+            }
+            
+            
+            
+            
+        }else{
+            
+            //view 
+            
+            print("view pdf")
+            
+            let manager = NSFileManager.defaultManager()
+            
+            var path = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            
+            path = path.URLByAppendingPathComponent("\(id)v1.pdf")
+            
+            let PDFViewer = PDFViewController()
+                
+            PDFViewer.url = path
+                
+            self.navigationController?.pushViewController(PDFViewer, animated: true)
         
-        PDFViewer.url = url
-        
-        self.navigationController?.pushViewController(PDFViewer, animated: true)
+        }
         
         
     }
@@ -167,6 +254,16 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
     }
     
     func createPaperError(error:NSError){}
+    
+    func updatePaperSuccess() {
+        
+        print("download ok and update parse database ok")
+    }
+    
+    func updatePaperError(error: NSError) {
+        
+        
+    }
     
     func removePaperSuccess(){
         

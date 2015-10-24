@@ -1,12 +1,16 @@
 PODS:
+  - AFMInfoBanner (1.1):
+    - CVKHierarchySearcher (~> 0.2)
   - Alamofire (3.0.0)
   - CryptoSwift (0.1.1)
+  - CVKHierarchySearcher (0.2.0)
   - M13PDFKit (1.1.0):
     - TTOpenInAppActivity
   - SwiftyJSON (2.3.0)
   - TTOpenInAppActivity (1.0)
 
 DEPENDENCIES:
+  - AFMInfoBanner
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
   - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
   - M13PDFKit
@@ -33,8 +37,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  AFMInfoBanner: 207a0622fdfc6bff3e8d04ac557932f3d6849425
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
   CryptoSwift: c11640d3d66107efc8333e4131a5173f072b1d61
+  CVKHierarchySearcher: 7be8d3bcbcc6f86ff07f785e6c632b5e40da2553
   M13PDFKit: 4417c8a98dd22c0fe1e615f40bdf38848bb3b367
   SwiftyJSON: cacfe0373d584585716bd1d43202c24cc66afd65
   TTOpenInAppActivity: c2218fe419d03ddd4ffb1f07d52d66e0d213d0d4

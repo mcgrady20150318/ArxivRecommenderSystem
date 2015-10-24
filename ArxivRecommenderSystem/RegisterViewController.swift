@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                     
             }else{
                     
-                var err = error?.userInfo["error"] as? String
+                let err = error?.userInfo["error"] as? String
                     
                 self.alertView = DXAlertView.init(title: "Notice", contentText: err, leftButtonTitle: "Retype", rightButtonTitle: "Cancel")
                 

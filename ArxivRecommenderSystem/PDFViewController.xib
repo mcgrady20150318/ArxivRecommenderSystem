@@ -28,6 +28,7 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Kgf-FX-yOT">
                     <rect key="frame" x="169" y="315" width="37" height="37"/>
                     <animations/>
+                    <color key="color" red="0.12669360637664795" green="0.57139235734939575" blue="0.94121992588043213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
             </subviews>
             <animations/>

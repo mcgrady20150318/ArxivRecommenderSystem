@@ -5,5 +5,5 @@
 #import "AMTagListView.h"
 #import "DXAlertView.h"
 #import "MONActivityIndicatorView.h"
-#import "M13PDFKit/PDFKBasicPDFViewer.h"
+#import "AFMInfoBanner/AFMInfoBanner.h"
 

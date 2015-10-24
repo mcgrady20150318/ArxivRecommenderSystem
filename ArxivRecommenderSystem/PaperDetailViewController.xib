@@ -7,7 +7,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaperDetailViewController" customModule="ArxivRecommenderSystem" customModuleProvider="target">
             <connections>
                 <outlet property="Like" destination="MZf-Pa-Xkj" id="voW-3X-yMP"/>
+                <outlet property="PDF" destination="s6Z-mj-eUp" id="NCZ-vO-DrU"/>
                 <outlet property="author" destination="52g-ed-Pb8" id="7Hj-pg-KGE"/>
+                <outlet property="indicator" destination="OT1-V9-C8S" id="tmw-Gp-uMr"/>
                 <outlet property="summary" destination="ABs-YQ-CGE" id="BJj-no-Q4U"/>
                 <outlet property="time" destination="gPL-aS-PMX" id="hTA-s4-sEq"/>
                 <outlet property="titlename" destination="L6T-uq-9Ax" id="WJk-zw-wb6"/>
@@ -82,16 +84,21 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6Z-mj-eUp">
-                    <rect key="frame" x="277" y="199" width="71" height="32"/>
+                    <rect key="frame" x="261" y="199" width="88" height="32"/>
                     <animations/>
                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="13"/>
-                    <state key="normal" title="View PDF">
+                    <state key="normal">
                         <color key="titleColor" red="0.077365495264530182" green="0.44354212284088135" blue="0.87638098001480103" alpha="0.72376077586206899" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="ViewPDF:" destination="-1" eventType="touchUpInside" id="7TT-GJ-dnY"/>
                     </connections>
                 </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OT1-V9-C8S">
+                    <rect key="frame" x="167" y="389" width="37" height="37"/>
+                    <animations/>
+                    <color key="color" red="0.13725490196078433" green="0.37647058823529411" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
