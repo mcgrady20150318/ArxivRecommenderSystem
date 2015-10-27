@@ -49,6 +49,7 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"header"), forBarMetrics: UIBarMetrics.Default)
         
+        
         self.RecommendButton.hidden = true
         
         textField.layer.borderColor = UIColor(red:0.12, green:0.25, blue:0.84, alpha:1).CGColor
@@ -144,8 +145,14 @@ class HomeViewController : UIViewController,TagDAODelegate,UITextFieldDelegate{
     }
     
     
-
-    
+    @IBAction func GoToAboutViewController(sender: AnyObject) {
+        
+        let aboutVC = AboutViewController(nibName: "AboutViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(aboutVC, animated: false)
+        
+        
+    }
     
     /* delegate implement */
     

@@ -45,6 +45,7 @@ class PapersViewController: UIViewController, UITableViewDataSource , UITableVie
         
         self.indicator.startAnimating()
         
+        
     }
     
     /* data init */

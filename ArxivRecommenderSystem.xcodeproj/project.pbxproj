@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		601B35731BD8B3B600F59EB8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B35721BD8B3B600F59EB8 /* MobileCoreServices.framework */; };
 		601B35751BD8B3C800F59EB8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B35741BD8B3C800F59EB8 /* ImageIO.framework */; };
-		601B35B41BD8BA7600F59EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601B35B31BD8BA7600F59EB8 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		601B35B71BD9425400F59EB8 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601B35B51BD9425400F59EB8 /* PDFViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		601B35B81BD9425400F59EB8 /* PDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601B35B61BD9425400F59EB8 /* PDFViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		601B35B41BD8BA7600F59EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601B35B31BD8BA7600F59EB8 /* Assets.xcassets */; };
+		601B35B71BD9425400F59EB8 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601B35B51BD9425400F59EB8 /* PDFViewController.swift */; };
+		601B35B81BD9425400F59EB8 /* PDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601B35B61BD9425400F59EB8 /* PDFViewController.xib */; };
 		6060CF5A1BD1D12C0094F010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060CF591BD1D12C0094F010 /* AppDelegate.swift */; };
 		6060CF5C1BD1D12C0094F010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060CF5B1BD1D12C0094F010 /* ViewController.swift */; };
 		6060CF5F1BD1D12C0094F010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6060CF5D1BD1D12C0094F010 /* Main.storyboard */; };
 		6060CF641BD1D12C0094F010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6060CF621BD1D12C0094F010 /* LaunchScreen.storyboard */; };
 		6060CF6F1BD1D12C0094F010 /* ArxivRecommenderSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060CF6E1BD1D12C0094F010 /* ArxivRecommenderSystemTests.swift */; };
 		6060CF7A1BD1D12C0094F010 /* ArxivRecommenderSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060CF791BD1D12C0094F010 /* ArxivRecommenderSystemUITests.swift */; };
-		6060CF891BD1D2630094F010 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF871BD1D2630094F010 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		6060CF8A1BD1D2630094F010 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF881BD1D2630094F010 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		6060CF891BD1D2630094F010 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF871BD1D2630094F010 /* Bolts.framework */; };
+		6060CF8A1BD1D2630094F010 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF881BD1D2630094F010 /* Parse.framework */; };
 		6060CF941BD1D3AB0094F010 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF8C1BD1D3AB0094F010 /* AudioToolbox.framework */; };
 		6060CF951BD1D3AB0094F010 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF8D1BD1D3AB0094F010 /* CFNetwork.framework */; };
 		6060CF961BD1D3AB0094F010 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF8E1BD1D3AB0094F010 /* CoreGraphics.framework */; };
@@ -30,36 +30,39 @@
 		6060CF9B1BD1D3AB0094F010 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF931BD1D3AB0094F010 /* SystemConfiguration.framework */; };
 		6060CF9D1BD1D3BE0094F010 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF9C1BD1D3BE0094F010 /* libz.tbd */; };
 		6060CF9F1BD1D3C80094F010 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6060CF9E1BD1D3C80094F010 /* libsqlite3.tbd */; };
-		60C3B86D1BD206A10014AC18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86C1BD206A10014AC18 /* UserModel.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B86F1BD2099C0014AC18 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86E1BD2099C0014AC18 /* PaperModel.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8711BD20A9C0014AC18 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8701BD20A9C0014AC18 /* TagModel.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8731BD20BAE0014AC18 /* ParseDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8721BD20BAE0014AC18 /* ParseDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8751BD20CA90014AC18 /* LateralDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8741BD20CA90014AC18 /* LateralDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8781BD20D850014AC18 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8771BD20D850014AC18 /* UserDAO.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B87A1BD20E2B0014AC18 /* PaperDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8791BD20E2B0014AC18 /* PaperDAO.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B87C1BD20F1A0014AC18 /* TagDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8811BD2BCFF0014AC18 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8801BD2BCFF0014AC18 /* const.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8871BD303110014AC18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8861BD303110014AC18 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8891BD330080014AC18 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8881BD330080014AC18 /* RegisterViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B88B1BD33B0F0014AC18 /* PaperDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88A1BD33B0F0014AC18 /* PaperDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B88D1BD33B1F0014AC18 /* TagDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88C1BD33B1F0014AC18 /* TagDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B88F1BD33B2D0014AC18 /* UserDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88E1BD33B2D0014AC18 /* UserDAODelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8971BD33D1C0014AC18 /* UserBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8961BD33D1C0014AC18 /* UserBL.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8991BD33D270014AC18 /* PaperBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8981BD33D270014AC18 /* PaperBL.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B89B1BD33D320014AC18 /* TagBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B89A1BD33D320014AC18 /* TagBL.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B89D1BD363E50014AC18 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B89C1BD363E50014AC18 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8A41BD364EB0014AC18 /* AMTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A11BD364EB0014AC18 /* AMTagListView.m */; settings = {ASSET_TAGS = (); }; };
-		60C3B8A51BD364EB0014AC18 /* AMTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A31BD364EB0014AC18 /* AMTagView.m */; settings = {ASSET_TAGS = (); }; };
-		60C3B8A91BD37B880014AC18 /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A81BD37B880014AC18 /* DXAlertView.m */; settings = {ASSET_TAGS = (); }; };
-		60C3B8B41BD419860014AC18 /* PaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8B21BD419860014AC18 /* PaperCell.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8B51BD419860014AC18 /* PaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8B31BD419860014AC18 /* PaperCell.xib */; settings = {ASSET_TAGS = (); }; };
-		60C3B8C11BD432C10014AC18 /* MONActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C01BD432C10014AC18 /* MONActivityIndicatorView.m */; settings = {ASSET_TAGS = (); }; };
-		60C3B8C41BD436D00014AC18 /* PaperDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C21BD436D00014AC18 /* PaperDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8C51BD436D00014AC18 /* PaperDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8C31BD436D00014AC18 /* PaperDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		60C3B8C81BD464720014AC18 /* PapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C61BD464720014AC18 /* PapersViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C3B8C91BD464720014AC18 /* PapersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8C71BD464720014AC18 /* PapersViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		60C5ACC51BD9F2CD006FFB65 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ACC31BD9F2CD006FFB65 /* BookmarkViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		60C5ACC61BD9F2CD006FFB65 /* BookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C5ACC41BD9F2CD006FFB65 /* BookmarkViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		60A3E9B11BDEA81700383294 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A3E9B01BDEA81700383294 /* MBProgressHUD.m */; };
+		60A3EA621BDFF4EE00383294 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A3EA601BDFF4EE00383294 /* AboutViewController.swift */; };
+		60A3EA631BDFF4EE00383294 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A3EA611BDFF4EE00383294 /* AboutViewController.xib */; };
+		60C3B86D1BD206A10014AC18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86C1BD206A10014AC18 /* UserModel.swift */; };
+		60C3B86F1BD2099C0014AC18 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86E1BD2099C0014AC18 /* PaperModel.swift */; };
+		60C3B8711BD20A9C0014AC18 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8701BD20A9C0014AC18 /* TagModel.swift */; };
+		60C3B8731BD20BAE0014AC18 /* ParseDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8721BD20BAE0014AC18 /* ParseDAODelegate.swift */; };
+		60C3B8751BD20CA90014AC18 /* LateralDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8741BD20CA90014AC18 /* LateralDAODelegate.swift */; };
+		60C3B8781BD20D850014AC18 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8771BD20D850014AC18 /* UserDAO.swift */; };
+		60C3B87A1BD20E2B0014AC18 /* PaperDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8791BD20E2B0014AC18 /* PaperDAO.swift */; };
+		60C3B87C1BD20F1A0014AC18 /* TagDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B87B1BD20F1A0014AC18 /* TagDAO.swift */; };
+		60C3B8811BD2BCFF0014AC18 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8801BD2BCFF0014AC18 /* const.swift */; };
+		60C3B8871BD303110014AC18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8861BD303110014AC18 /* LoginViewController.swift */; };
+		60C3B8891BD330080014AC18 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8881BD330080014AC18 /* RegisterViewController.swift */; };
+		60C3B88B1BD33B0F0014AC18 /* PaperDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88A1BD33B0F0014AC18 /* PaperDAODelegate.swift */; };
+		60C3B88D1BD33B1F0014AC18 /* TagDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88C1BD33B1F0014AC18 /* TagDAODelegate.swift */; };
+		60C3B88F1BD33B2D0014AC18 /* UserDAODelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B88E1BD33B2D0014AC18 /* UserDAODelegate.swift */; };
+		60C3B8971BD33D1C0014AC18 /* UserBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8961BD33D1C0014AC18 /* UserBL.swift */; };
+		60C3B8991BD33D270014AC18 /* PaperBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8981BD33D270014AC18 /* PaperBL.swift */; };
+		60C3B89B1BD33D320014AC18 /* TagBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B89A1BD33D320014AC18 /* TagBL.swift */; };
+		60C3B89D1BD363E50014AC18 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B89C1BD363E50014AC18 /* HomeViewController.swift */; };
+		60C3B8A41BD364EB0014AC18 /* AMTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A11BD364EB0014AC18 /* AMTagListView.m */; };
+		60C3B8A51BD364EB0014AC18 /* AMTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A31BD364EB0014AC18 /* AMTagView.m */; };
+		60C3B8A91BD37B880014AC18 /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8A81BD37B880014AC18 /* DXAlertView.m */; };
+		60C3B8B41BD419860014AC18 /* PaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8B21BD419860014AC18 /* PaperCell.swift */; };
+		60C3B8B51BD419860014AC18 /* PaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8B31BD419860014AC18 /* PaperCell.xib */; };
+		60C3B8C11BD432C10014AC18 /* MONActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C01BD432C10014AC18 /* MONActivityIndicatorView.m */; };
+		60C3B8C41BD436D00014AC18 /* PaperDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C21BD436D00014AC18 /* PaperDetailViewController.swift */; };
+		60C3B8C51BD436D00014AC18 /* PaperDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8C31BD436D00014AC18 /* PaperDetailViewController.xib */; };
+		60C3B8C81BD464720014AC18 /* PapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8C61BD464720014AC18 /* PapersViewController.swift */; };
+		60C3B8C91BD464720014AC18 /* PapersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C3B8C71BD464720014AC18 /* PapersViewController.xib */; };
+		60C5ACC51BD9F2CD006FFB65 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ACC31BD9F2CD006FFB65 /* BookmarkViewController.swift */; };
+		60C5ACC61BD9F2CD006FFB65 /* BookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C5ACC41BD9F2CD006FFB65 /* BookmarkViewController.xib */; };
 		FAA4F01A1B3868D6B141B5CE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAB919951E3D4EA70CBA1E3 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +113,10 @@
 		6060CF931BD1D3AB0094F010 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6060CF9C1BD1D3BE0094F010 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6060CF9E1BD1D3C80094F010 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		60A3E9AF1BDEA81700383294 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		60A3E9B01BDEA81700383294 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		60A3EA601BDFF4EE00383294 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		60A3EA611BDFF4EE00383294 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		60C3B86C1BD206A10014AC18 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		60C3B86E1BD2099C0014AC18 /* PaperModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		60C3B8701BD20A9C0014AC18 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
@@ -253,6 +260,7 @@
 		6060CF8B1BD1D26A0094F010 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60A3E9AE1BDEA80600383294 /* MBProgressHUB */,
 				60C3B8BE1BD432A60014AC18 /* MonActivity */,
 				60C3B8A61BD37B190014AC18 /* DXAlertView */,
 				60C3B89E1BD364D20014AC18 /* AMTagListView */,
@@ -270,6 +278,15 @@
 				6060CF871BD1D2630094F010 /* Bolts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60A3E9AE1BDEA80600383294 /* MBProgressHUB */ = {
+			isa = PBXGroup;
+			children = (
+				60A3E9AF1BDEA81700383294 /* MBProgressHUD.h */,
+				60A3E9B01BDEA81700383294 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUB;
 			sourceTree = "<group>";
 		};
 		60C3B8671BD2067C0014AC18 /* Model */ = {
@@ -379,6 +396,7 @@
 		60C3B8AA1BD37EC10014AC18 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				60A3EA601BDFF4EE00383294 /* AboutViewController.swift */,
 				60C5ACC31BD9F2CD006FFB65 /* BookmarkViewController.swift */,
 				601B35B51BD9425400F59EB8 /* PDFViewController.swift */,
 				60C3B8C61BD464720014AC18 /* PapersViewController.swift */,
@@ -401,6 +419,7 @@
 				60C3B8C71BD464720014AC18 /* PapersViewController.xib */,
 				601B35B61BD9425400F59EB8 /* PDFViewController.xib */,
 				60C5ACC41BD9F2CD006FFB65 /* BookmarkViewController.xib */,
+				60A3EA611BDFF4EE00383294 /* AboutViewController.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -550,6 +569,7 @@
 				60C3B8C51BD436D00014AC18 /* PaperDetailViewController.xib in Resources */,
 				60C3B8B51BD419860014AC18 /* PaperCell.xib in Resources */,
 				601B35B41BD8BA7600F59EB8 /* Assets.xcassets in Resources */,
+				60A3EA631BDFF4EE00383294 /* AboutViewController.xib in Resources */,
 				6060CF5F1BD1D12C0094F010 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +650,8 @@
 				60C3B89B1BD33D320014AC18 /* TagBL.swift in Sources */,
 				60C3B8B41BD419860014AC18 /* PaperCell.swift in Sources */,
 				60C3B8991BD33D270014AC18 /* PaperBL.swift in Sources */,
+				60A3E9B11BDEA81700383294 /* MBProgressHUD.m in Sources */,
+				60A3EA621BDFF4EE00383294 /* AboutViewController.swift in Sources */,
 				60C3B86F1BD2099C0014AC18 /* PaperModel.swift in Sources */,
 				60C3B8A51BD364EB0014AC18 /* AMTagView.m in Sources */,
 				60C3B8971BD33D1C0014AC18 /* UserBL.swift in Sources */,
@@ -798,7 +820,7 @@
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",
 				);
 				INFOPLIST_FILE = ArxivRecommenderSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mcgrady20150318.www.ArxivRecommenderSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -818,7 +840,7 @@
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",
 				);
 				INFOPLIST_FILE = ArxivRecommenderSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mcgrady20150318.www.ArxivRecommenderSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";

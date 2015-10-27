@@ -15,7 +15,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var password: UITextField!
     
     var alertView : DXAlertView?
-    
+        
     override func viewDidLoad() {
         
         super.viewDidLoad()

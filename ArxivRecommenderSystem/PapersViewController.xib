@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PapersViewController" customModule="ArxivRecommenderSystem" customModuleProvider="target">
@@ -16,33 +17,53 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="gub-9A-veb">
-                    <rect key="frame" x="0.0" y="617" width="376" height="50"/>
-                    <animations/>
-                </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oNS-fA-ZAw">
-                    <rect key="frame" x="0.0" y="62" width="375" height="546"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="oNS-fA-ZAw">
+                    <rect key="frame" x="-1" y="0.0" width="375" height="607"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-gZ-ReU">
-                    <rect key="frame" x="30" y="514" width="60" height="60"/>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-gZ-ReU">
+                    <rect key="frame" x="15" y="549" width="60" height="60"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="JK8-H1-ep4"/>
+                        <constraint firstAttribute="height" constant="60" id="nyM-uN-6Wh"/>
+                    </constraints>
                     <state key="normal" backgroundImage="return"/>
                     <connections>
                         <action selector="ReturnToHome:" destination="-1" eventType="touchUpInside" id="XQq-X0-hiV"/>
                     </connections>
                 </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-fD-hVa">
-                    <rect key="frame" x="169" y="309" width="37" height="37"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PeR-fD-hVa">
+                    <rect key="frame" x="170" y="309" width="37" height="37"/>
                     <animations/>
                     <color key="color" red="0.15351384878158569" green="0.51913267374038696" blue="0.93114811182022095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="gub-9A-veb">
+                    <rect key="frame" x="0.0" y="618" width="375" height="50"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="NCO-Wz-wcm"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oNS-fA-ZAw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="2E0-uB-usE"/>
+                <constraint firstItem="gub-9A-veb" firstAttribute="top" secondItem="IDd-gZ-ReU" secondAttribute="bottom" constant="10" id="4GM-Nd-XCl"/>
+                <constraint firstAttribute="trailing" secondItem="gub-9A-veb" secondAttribute="trailing" constant="-25" id="52i-0z-27j"/>
+                <constraint firstAttribute="bottom" secondItem="gub-9A-veb" secondAttribute="bottom" id="6bo-fS-Mmw"/>
+                <constraint firstAttribute="trailing" secondItem="oNS-fA-ZAw" secondAttribute="trailing" constant="1" id="7Si-6P-9hV"/>
+                <constraint firstItem="oNS-fA-ZAw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="9lv-rW-nRI"/>
+                <constraint firstItem="PeR-fD-hVa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hr3-up-aSl"/>
+                <constraint firstItem="gub-9A-veb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-25" id="XSp-tO-GIg"/>
+                <constraint firstItem="IDd-gZ-ReU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ZPm-Fn-7GS"/>
+                <constraint firstItem="gub-9A-veb" firstAttribute="top" secondItem="oNS-fA-ZAw" secondAttribute="bottom" constant="5" id="bJF-fJ-5Js"/>
+                <constraint firstItem="PeR-fD-hVa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="utI-i3-iEf"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="352.5" y="257.5"/>
+            <point key="canvasLocation" x="351.5" y="256.5"/>
         </view>
     </objects>
     <resources>

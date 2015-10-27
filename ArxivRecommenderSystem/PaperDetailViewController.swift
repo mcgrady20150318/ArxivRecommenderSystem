@@ -146,7 +146,7 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
         
         let id = paper.url!.componentsSeparatedByString("/")[4]
         
-        let url = "http://arxiv.org/pdf/\(id)v1.pdf"
+        let url = "http://arxiv.org/pdf/\(id).pdf"
         
         if self.paper.isDownload == false{
             
@@ -163,7 +163,7 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
                 
                 //button = "view pdf"
                 
-                return directoryURL.URLByAppendingPathComponent("\(id)v1.pdf")
+                return directoryURL.URLByAppendingPathComponent("\(id).pdf")
                 
                 }.progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
                     print(totalBytesRead)
@@ -187,8 +187,8 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
                         
                         self.PDF.setTitle("View PDF", forState: UIControlState.Normal)
                         
-                        AFMInfoBanner.showAndHideWithText("Paper Download Successfully", style: AFMInfoBannerStyle.Error)
-                        
+                        AFMInfoBanner.showAndHideWithText("Paper Download Successfully", style: AFMInfoBannerStyle.Info)
+                    
                         //update database paper file
                         
                         self.paperBL.updatePaper(self.paper)
@@ -210,7 +210,7 @@ class PaperDetailViewController: UIViewController, PaperDAODelegate,TagDAODelega
             
             var path = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             
-            path = path.URLByAppendingPathComponent("\(id)v1.pdf")
+            path = path.URLByAppendingPathComponent("\(id).pdf")
             
             let PDFViewer = PDFViewController()
                 
