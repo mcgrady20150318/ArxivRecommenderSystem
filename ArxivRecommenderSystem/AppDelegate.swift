@@ -16,6 +16,7 @@ import Bolts
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var introductionView: ZWIntroductionViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,27 +24,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("cLglfxuMeIi0f28SKdKksJF5fJfMcKrWIy7iIooC", clientKey: "g8y2qzYiPvjbY8fcO5kQp93LdRi8wWNObtBu3iZ6")
         
-        let username : String? = NSUserDefaults.standardUserDefaults().stringForKey("username")
+      /*  let isIntro : String? = NSUserDefaults.standardUserDefaults().stringForKey("intro")
         
-        if username != nil{
+        if isIntro == nil{
             
-            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let backgroundImageNames = ["intro1","intro2", "intro3"]
+            self.introductionView = ZWIntroductionViewController(coverImageNames: ["","",""], backgroundImageNames: backgroundImageNames)
             
-            let nav : UINavigationController = mainStoryBoard.instantiateViewControllerWithIdentifier("nav") as! UINavigationController
+            NSUserDefaults.standardUserDefaults().setObject("1", forKey: "intro")
             
-            self.window?.rootViewController = nav
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            self.window?.rootViewController = self.introductionView
+            
+            self.introductionView!.didSelectedEnter = {
+                
+                self.introductionView!.view.removeFromSuperview()
+                self.introductionView = nil;
+                
+                self.Enter()
+                
+            }
             
         }else{
             
-            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let login : LoginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-            
-            self.window?.rootViewController = login
+            Enter()
             
             
-        }
-
+        }*/
+        
+        Enter()
         
         return true
     }
@@ -68,6 +78,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func Enter(){
+        
+        let username : String? = NSUserDefaults.standardUserDefaults().stringForKey("username")
+        
+        if username != nil{
+            
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let nav : UINavigationController = mainStoryBoard.instantiateViewControllerWithIdentifier("nav") as! UINavigationController
+            
+            self.window?.rootViewController = nav
+            
+        }else{
+            
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let login : LoginViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+            
+            self.window?.rootViewController = login
+            
+            
+        }
+
+        
     }
 
 

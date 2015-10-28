@@ -76,6 +76,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate{
                         
                         appDelegate.window?.rootViewController = nav
                         
+                        self.alertView?.removeFromSuperview()
+                        
                     }
                     
                     

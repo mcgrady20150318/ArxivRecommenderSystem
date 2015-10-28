@@ -82,6 +82,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         
                     appDelegate.window?.rootViewController = nav
+                    
+                    self.alertView?.removeFromSuperview()
                         
                         
                 }
