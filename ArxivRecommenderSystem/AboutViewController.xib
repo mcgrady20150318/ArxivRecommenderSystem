@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="ArxivRecommenderSystem" customModuleProvider="target">
             <connections>
+                <outlet property="adView" destination="IS2-gi-2qd" id="Z71-Mr-fKP"/>
+                <outlet property="intro" destination="rjy-lp-0gb" id="zyj-F4-o7r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,44 +20,66 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="footer" translatesAutoresizingMaskIntoConstraints="NO" id="CyO-SG-Lo8">
                     <rect key="frame" x="0.0" y="618" width="375" height="50"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="hi4-fI-HBN"/>
+                    </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JJ2-MP-8dB">
-                    <rect key="frame" x="7" y="357" width="362" height="165"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">ArxivRS is tool for researchers who use arxiv. It aims to help researchers to find interested papers and tags easily. We recommend papers from your tags edited in the home page, and recommend tags from your bookmarked papers.It is an iterative progress to train your personal recommender. If you have any questions or suggestions when you use it, please let me know.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mcgrady150318@163.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXQ-3U-gzE">
-                    <rect key="frame" x="104" y="554" width="232" height="21"/>
+                    <rect key="frame" x="110" y="320" width="232" height="21"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="ka9-xF-nzW">
-                    <rect key="frame" x="18" y="536" width="50" height="50"/>
+                    <rect key="frame" x="21" y="302" width="50" height="50"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Gd0-QD-Qbq"/>
                         <constraint firstAttribute="height" constant="50" id="a6B-PL-qAU"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-gi-2qd" customClass="GADBannerView">
+                    <rect key="frame" x="19" y="533" width="331" height="80"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="YZQ-p7-FLF"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="YZQ-p7-FLF"/>
+                        </mask>
+                    </variation>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rjy-lp-0gb">
+                    <rect key="frame" x="23" y="99" width="325" height="176"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="176" id="zZc-xR-tv8"/>
+                    </constraints>
+                    <string key="text">ArxivRS is a tool for researchers who use arxiv. It aims to help researchers to find interested papers and tags easily. We recommend papers from your tags edited in the home page, and recommend tags from your bookmarked papers.It is an iterative progress to train your personal recommender. If you have any questions or suggestions when use it, please let me know.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="rjy-lp-0gb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="1L5-U8-Zf7"/>
                 <constraint firstAttribute="trailing" secondItem="CyO-SG-Lo8" secondAttribute="trailing" constant="-25" id="8rO-1m-OCy"/>
                 <constraint firstAttribute="bottom" secondItem="CyO-SG-Lo8" secondAttribute="bottom" id="Cem-1v-JHR"/>
-                <constraint firstItem="ka9-xF-nzW" firstAttribute="top" secondItem="JJ2-MP-8dB" secondAttribute="bottom" constant="10" id="IB3-a9-2BV"/>
+                <constraint firstItem="EXQ-3U-gzE" firstAttribute="top" secondItem="rjy-lp-0gb" secondAttribute="bottom" constant="45" id="Erx-34-d4b"/>
                 <constraint firstItem="EXQ-3U-gzE" firstAttribute="leading" secondItem="ka9-xF-nzW" secondAttribute="trailing" constant="36" id="P2Q-3p-dOy"/>
                 <constraint firstItem="CyO-SG-Lo8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-25" id="P4M-HW-ayy"/>
-                <constraint firstItem="CyO-SG-Lo8" firstAttribute="top" secondItem="ka9-xF-nzW" secondAttribute="bottom" constant="20" id="bdP-Nx-0EI"/>
+                <constraint firstItem="ka9-xF-nzW" firstAttribute="top" secondItem="rjy-lp-0gb" secondAttribute="bottom" constant="30" id="VAD-on-X2Y"/>
+                <constraint firstAttribute="trailing" secondItem="rjy-lp-0gb" secondAttribute="trailing" constant="10" id="caW-a4-s0W"/>
+                <constraint firstItem="IS2-gi-2qd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eSR-wP-2N1"/>
                 <constraint firstItem="ka9-xF-nzW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="g5u-7u-tky"/>
-                <constraint firstItem="JJ2-MP-8dB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="uep-FE-gpp"/>
-                <constraint firstItem="CyO-SG-Lo8" firstAttribute="top" secondItem="EXQ-3U-gzE" secondAttribute="bottom" constant="30" id="wnw-TJ-0j1"/>
-                <constraint firstAttribute="trailing" secondItem="JJ2-MP-8dB" secondAttribute="trailing" constant="10" id="yPc-Fx-WBc"/>
+                <constraint firstItem="CyO-SG-Lo8" firstAttribute="top" secondItem="IS2-gi-2qd" secondAttribute="bottom" id="ggR-rY-kMf"/>
+                <constraint firstAttribute="trailing" secondItem="IS2-gi-2qd" secondAttribute="trailing" id="oRP-Nf-r2W"/>
+                <constraint firstItem="rjy-lp-0gb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="ycY-lE-sTg"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

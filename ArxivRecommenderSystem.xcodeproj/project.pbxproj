@@ -33,6 +33,7 @@
 		60A3E9B11BDEA81700383294 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A3E9B01BDEA81700383294 /* MBProgressHUD.m */; };
 		60A3EA621BDFF4EE00383294 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A3EA601BDFF4EE00383294 /* AboutViewController.swift */; };
 		60A3EA631BDFF4EE00383294 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A3EA611BDFF4EE00383294 /* AboutViewController.xib */; };
+		60A3EA671BE0345300383294 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A3EA661BE0345300383294 /* GoogleMobileAds.framework */; };
 		60C3B86D1BD206A10014AC18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86C1BD206A10014AC18 /* UserModel.swift */; };
 		60C3B86F1BD2099C0014AC18 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B86E1BD2099C0014AC18 /* PaperModel.swift */; };
 		60C3B8711BD20A9C0014AC18 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C3B8701BD20A9C0014AC18 /* TagModel.swift */; };
@@ -117,6 +118,7 @@
 		60A3E9B01BDEA81700383294 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		60A3EA601BDFF4EE00383294 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		60A3EA611BDFF4EE00383294 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		60A3EA661BE0345300383294 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		60C3B86C1BD206A10014AC18 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		60C3B86E1BD2099C0014AC18 /* PaperModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		60C3B8701BD20A9C0014AC18 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			files = (
 				601B35751BD8B3C800F59EB8 /* ImageIO.framework in Frameworks */,
 				601B35731BD8B3B600F59EB8 /* MobileCoreServices.framework in Frameworks */,
+				60A3EA671BE0345300383294 /* GoogleMobileAds.framework in Frameworks */,
 				6060CF9F1BD1D3C80094F010 /* libsqlite3.tbd in Frameworks */,
 				6060CF9D1BD1D3BE0094F010 /* libz.tbd in Frameworks */,
 				6060CF941BD1D3AB0094F010 /* AudioToolbox.framework in Frameworks */,
@@ -266,6 +269,7 @@
 				60C3B89E1BD364D20014AC18 /* AMTagListView */,
 				6060CF9C1BD1D3BE0094F010 /* libz.tbd */,
 				6060CF9E1BD1D3C80094F010 /* libsqlite3.tbd */,
+				60A3EA661BE0345300383294 /* GoogleMobileAds.framework */,
 				6060CF8C1BD1D3AB0094F010 /* AudioToolbox.framework */,
 				6060CF8D1BD1D3AB0094F010 /* CFNetwork.framework */,
 				6060CF8E1BD1D3AB0094F010 /* CoreGraphics.framework */,
@@ -815,6 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",
@@ -835,6 +840,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ArxivRecommenderSystem",

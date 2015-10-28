@@ -286,7 +286,7 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghg-ee-UpZ">
-                                <rect key="frame" x="3" y="109" width="364" height="441"/>
+                                <rect key="frame" x="3" y="109" width="369" height="441"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Crf-Eo-GGA" customClass="AMTagListView">
                                         <rect key="frame" x="0.0" y="20" width="369" height="409"/>
@@ -349,6 +349,7 @@
                         <color key="backgroundColor" red="0.99225836992263794" green="0.99611169099807739" blue="0.99599820375442505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="O6D-F2-EPA" secondAttribute="trailing" constant="5" id="0oL-6l-1dc"/>
+                            <constraint firstItem="ghg-ee-UpZ" firstAttribute="leading" secondItem="Udj-Jn-OE5" secondAttribute="leadingMargin" constant="-17" id="39Z-J9-wrl"/>
                             <constraint firstItem="Rvg-VY-D8k" firstAttribute="leading" secondItem="Udj-Jn-OE5" secondAttribute="leadingMargin" constant="5" id="MoA-7b-IRK"/>
                             <constraint firstItem="Fay-4u-oEx" firstAttribute="top" secondItem="RUV-FL-efS" secondAttribute="bottom" constant="8" id="NFL-So-arV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fay-4u-oEx" secondAttribute="trailing" constant="1" id="OlY-6u-lvS"/>
@@ -358,6 +359,8 @@
                             <constraint firstItem="Rvg-VY-D8k" firstAttribute="top" secondItem="ghg-ee-UpZ" secondAttribute="bottom" constant="5" id="Vnn-o1-NHL"/>
                             <constraint firstItem="tES-WF-S2l" firstAttribute="top" secondItem="9Pe-gA-S57" secondAttribute="bottom" id="Z06-iy-w4v"/>
                             <constraint firstItem="9Pe-gA-S57" firstAttribute="leading" secondItem="Udj-Jn-OE5" secondAttribute="leadingMargin" constant="-25" id="a6g-Lx-nNV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Crf-Eo-GGA" secondAttribute="trailing" constant="2" id="cFa-aI-QLg"/>
+                            <constraint firstItem="Crf-Eo-GGA" firstAttribute="leading" secondItem="Udj-Jn-OE5" secondAttribute="leadingMargin" constant="2" id="hYf-sx-Tqe"/>
                             <constraint firstItem="9Pe-gA-S57" firstAttribute="top" secondItem="O6D-F2-EPA" secondAttribute="bottom" constant="8" id="iwE-lE-TPJ"/>
                             <constraint firstItem="9Pe-gA-S57" firstAttribute="top" secondItem="YQ2-l6-Cd6" secondAttribute="bottom" constant="8" id="j7I-Fx-Rs5"/>
                             <constraint firstItem="Fay-4u-oEx" firstAttribute="leading" secondItem="Udj-Jn-OE5" secondAttribute="leadingMargin" constant="1" id="pWN-e0-I6G"/>
